@@ -10,6 +10,53 @@ The project allows adding locale based standard units to properties of any ItemT
 ![image](https://user-images.githubusercontent.com/27519066/34441887-9460530a-ec8c-11e7-95e0-01db4be76666.png)
 
 
+## Project Details
+
+**Built Using:** Aras 11.0 SP11
+
+**Browsers Tested:** Internet Explorer 11, Chrome
+
+> Though built and tested using Aras 11.0 SP11, this project should function in older releases of Aras 11.0 and Aras 10.0.
+
+## Installation
+
+#### Important!
+**Always back up your code tree and database before applying an import package or code tree patch!**
+
+### Pre-requisites
+
+1. Aras Innovator installed (version 11.0 SPx preferred)
+2. Aras Package Import tool
+
+### Install Steps
+
+1. Backup your database and store the BAK file in a safe place.
+2. Open up the Aras Package Import tool.
+3. Enter your login credentials and click **Login**
+    * _Note: You must login as root for the package import to succeed!_
+4. Enter the package name in the TargetRelease field.
+    * Optional: Enter a description in the Description field.
+5. Enter the path to your local `..\UOMConversion\Import\imports.mf` file in the Manifest File field.
+6. Select **all packages** in the Available for Import field.
+7. Select Type = **Merge** and Mode = **Thorough Mode**.
+8. Click **Import** in the top left corner.
+9. Close the Aras Package Import tool.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # Steps for Configuration (A sample configuration is included in the package)
 ## Modify the itemtype that has the properties  
 1. Add dimensional property(s) to the itemtype and form  
