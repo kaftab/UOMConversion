@@ -1,11 +1,14 @@
 # UOMConversion
 The project allows adding locale based standard units to properties of any ItemType. Property values are converted to be displayed in the units of the browser locale. A sample application to the Part ItemType is included in the package
 
-US Locale:  
+##US Locale:  
+
+![image](https://user-images.githubusercontent.com/27519066/34441904-a8762b80-ec8c-11e7-9e30-f1c5c73161d6.png)
+
+##French Locale:  
+
 ![image](https://user-images.githubusercontent.com/27519066/34441887-9460530a-ec8c-11e7-95e0-01db4be76666.png)
 
-French Locale:  
-![image](https://user-images.githubusercontent.com/27519066/34441904-a8762b80-ec8c-11e7-9e30-f1c5c73161d6.png)
 
 # Steps for Configuration (A sample configuration is included in the package)
 1. Modify the itemtype that has the properties  
