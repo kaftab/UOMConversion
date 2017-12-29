@@ -1,6 +1,11 @@
 # UOMConversion
 The project allows adding locale based standard units to properties of any ItemType. Property values are converted to be displayed in the units of the browser locale. A sample application to the Part ItemType is included in the package
 
+<table class="image">
+<caption align="bottom">{{ include.description }}</caption>
+<tr><td><img src="{(https://user-images.githubusercontent.com/27519066/34441887-9460530a-ec8c-11e7-95e0-01db4be76666.png}" alt="{{ include.description }}"/></td></tr>
+</table>
+
 US Locale:
 ![image](https://user-images.githubusercontent.com/27519066/34441887-9460530a-ec8c-11e7-95e0-01db4be76666.png)
 
