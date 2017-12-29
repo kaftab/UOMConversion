@@ -4,3 +4,4 @@ The project allows adding locale based standard units to properties of any ItemT
 # Steps for Configuration
 1. 
 2. 
+![image](https://user-images.githubusercontent.com/27519066/34441003-0f43d78c-ec87-11e7-80de-63b23ce6bba2.png)
