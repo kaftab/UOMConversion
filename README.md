@@ -3,7 +3,7 @@ The project allows adding locale based standard units to properties of any ItemT
 
 <table class="image">
 <caption align="bottom">{{ include.description }}</caption>
-<tr><td><img src="{(https://user-images.githubusercontent.com/27519066/34441887-9460530a-ec8c-11e7-95e0-01db4be76666.png}" alt="{{ include.description }}"/></td></tr>
+<tr><td><img src="{(https://user-images.githubusercontent.com/27519066/34441887-9460530a-ec8c-11e7-95e0-01db4be76666.png}" alt="{Part in US Locale}"/></td></tr>
 </table>
 
 US Locale:
