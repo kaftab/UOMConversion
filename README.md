@@ -2,8 +2,8 @@
 The project allows adding locale based standard units to properties of any ItemType. Property values are converted to be displayed in the units of the browser locale. A sample application to the Part ItemType is included in the package
 
 # Steps for Configuration (A sample configuration is included in the package)
-1. Modify the itemtype that has the properties
-1.1. Add dimensional property(s) to the itemtype and form
+1. Modify the itemtype that has the properties  
+1.1. Add dimensional property(s) to the itemtype and form  
 1.2. Add a UOM property to the itemtype and form, set a default value (used when locale is not defined)
 1.3. Make the UOM property “Disabled” on the form
 1.4. Ensure UOM property “Name” is same as the Data Source name
