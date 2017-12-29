@@ -8,7 +8,8 @@ The project allows adding locale based standard units to properties of any ItemT
 1.3. Make the UOM property “Disabled” on the form  
 1.4. Ensure UOM property “Name” is same as the Data Source name  
 
-![image](https://user-images.githubusercontent.com/27519066/34441003-0f43d78c-ec87-11e7-80de-63b23ce6bba2.png)
+
+![image](https://user-images.githubusercontent.com/27519066/34441475-01487b58-ec8a-11e7-8846-ae1bb93707d1.png)
 
 ![image](https://user-images.githubusercontent.com/27519066/34441074-756e8250-ec87-11e7-9ef9-27212340e914.png)
 
