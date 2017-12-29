@@ -61,7 +61,7 @@ The project allows adding locale based standard units to properties of any ItemT
 
 
 # Steps for Configuration (A sample configuration is included in the package)
-## Modify the itemtype that has the properties  
+## Modify the ItemType that needs the convertible properties 
 1. Add dimensional property(s) to the itemtype and form  
 2. Add a UOM property to the itemtype and form, set a default value (used when locale is not defined)  
 3. Make the UOM property “Disabled” on the form   
