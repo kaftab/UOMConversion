@@ -1,2 +1,2 @@
 # UOMConversion
-Allows assigning UOMs based on locale and converts values based on user's locale
+The project allows adding locale based standard units to properties of any ItemType. Property values are converted to be displayed in the units of the browser locale. A sample application to the Part ItemType is included in the package
