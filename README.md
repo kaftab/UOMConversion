@@ -27,11 +27,16 @@ The project allows adding locale based standard units to properties of any ItemT
 
 ![image](https://user-images.githubusercontent.com/27519066/34441184-0a1b752a-ec88-11e7-8c21-dce6168eb6ae.png)
 
-5. Create a new UnitConversion item
-5.1 Administration --> Unit Conversion --> File --> New
-5.1. Select the itemtype that this applies to
-5.2. Select the UOM property this applies to
-5.3. On “Locale Units”, define a standard unit for each locale
-5.4 On “Associated Properties”, add properties associated with this UOM
+5. Create a new UnitConversion item  
+5.1 Administration --> Unit Conversion --> File --> New  
+5.1. Select the itemtype that this applies to  
+5.2. Select the UOM property this applies to  
+5.3. On “Locale Units”, define a standard unit for each locale  
+5.4 On “Associated Properties”, add properties associated with this UOM  
 
 ![image](https://user-images.githubusercontent.com/27519066/34441228-558e2232-ec88-11e7-8915-87f96518bd50.png)
+
+![image](https://user-images.githubusercontent.com/27519066/34441593-c19faebc-ec8a-11e7-98c0-e6e42a96cae9.png)
+
+![image](https://user-images.githubusercontent.com/27519066/34441602-d638fb58-ec8a-11e7-87c0-560bf1376ecf.png)
+
