@@ -1,0 +1,12 @@
+<imports>
+  <package name="com.aras.innovator.i18n" path=".\">
+    <dependson name="com.aras.innovator.conflictdetection" />
+  </package>
+  <package name="UOMConversion" path="UOMConversion\Import" />
+  <package name="UOMConversionSample" path="UOMConversionSample\Import">
+    <dependson name="UOMConversion" />
+  </package>
+  <package name="com.aras.innovator.solution.PLM" path="PLM\Import">
+    <dependson name="UOMConversion" />
+  </package>
+</imports>

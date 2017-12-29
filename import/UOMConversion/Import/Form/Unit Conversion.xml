@@ -1,0 +1,115 @@
+﻿<AML>
+ <Item type="Form" id="D34F8078B975400FB3BCB4E354294EB6" action="add">
+  <category_form>0</category_form>
+  <height>234</height>
+  <stylesheet><![CDATA[../styles/default.css]]></stylesheet>
+  <width>699</width>
+  <name>Unit Conversion</name>
+  <Relationships>
+   <Item type="Body" id="B91F476611FB4A6A91EA4F97B4D137E9" action="add">
+    <bg_color>#FFFFFF</bg_color>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="Unit Conversion" type="Form">D34F8078B975400FB3BCB4E354294EB6</source_id>
+    <Relationships>
+     <Item type="Field" id="CBE09447348F48D4807C0D5511F8B55D" action="add">
+      <display_length_unit>px</display_length_unit>
+      <field_type>html</field_type>
+      <html_code><![CDATA[<span id='ITEM_INFO_INTERNAL_SPAN'/>
+<script>
+  populate_ITEM_INFO_INTERNAL_SPAN = function()
+  {
+    document.getElementById('ITEM_INFO_INTERNAL_SPAN').innerHTML = aras.uiGetItemInfoTable(document.itemType);
+  }
+  window.addEventListener('load', populate_ITEM_INFO_INTERNAL_SPAN);
+</script>]]></html_code>
+      <is_disabled>0</is_disabled>
+      <is_visible>1</is_visible>
+      <list_no_blank>0</list_no_blank>
+      <sort_order>512</sort_order>
+      <source_id keyed_name="B91F476611FB4A6A91EA4F97B4D137E9" type="Body">B91F476611FB4A6A91EA4F97B4D137E9</source_id>
+      <tab_stop>0</tab_stop>
+      <x>0</x>
+      <y>0</y>
+      <name>item_info</name>
+     </Item>
+     <Item type="Field" id="A28DF71C91984631AE226CBCD31039EE" action="add">
+      <border_width>0</border_width>
+      <display_length_unit>px</display_length_unit>
+      <field_type>item</field_type>
+      <font_color>#000000</font_color>
+      <font_family>arial, helvetica, sans-serif</font_family>
+      <font_size>8pt</font_size>
+      <font_weight>bold</font_weight>
+      <is_disabled>0</is_disabled>
+      <is_visible>1</is_visible>
+      <label xml:lang="en">Item Type</label>
+      <label_position>top</label_position>
+      <list_no_blank>0</list_no_blank>
+      <propertytype_id keyed_name="uom_itemtype" type="Property">A0E6C8688342485DA60B280A7A159A12</propertytype_id>
+      <sort_order>128</sort_order>
+      <source_id keyed_name="B91F476611FB4A6A91EA4F97B4D137E9" type="Body">B91F476611FB4A6A91EA4F97B4D137E9</source_id>
+      <tab_index>10</tab_index>
+      <tab_stop>1</tab_stop>
+      <x>190</x>
+      <y>10</y>
+      <name>uom_itemtype</name>
+      <Relationships>
+       <Item type="Field Event" id="AF58E88E34154B8AA548433E2D4AA992" action="add">
+        <field_event>onblur</field_event>
+        <related_id keyed_name="UOM_EnableDisableUOMProperty" type="Method">
+         <Item type="Method" action="get" select="id">
+          <name>UOM_EnableDisableUOMProperty</name>
+         </Item>
+        </related_id>
+        <sort_order>128</sort_order>
+        <source_id keyed_name="uom_itemtype" type="Field">A28DF71C91984631AE226CBCD31039EE</source_id>
+       </Item>
+       <Item type="Field Event" id="F228EA14BCDD45DBA0C4332758CEEED2" action="add">
+        <field_event>onchange</field_event>
+        <related_id keyed_name="UOM_EnableDisableUOMProperty" type="Method">
+         <Item type="Method" action="get" select="id">
+          <name>UOM_EnableDisableUOMProperty</name>
+         </Item>
+        </related_id>
+        <sort_order>256</sort_order>
+        <source_id keyed_name="uom_itemtype" type="Field">A28DF71C91984631AE226CBCD31039EE</source_id>
+       </Item>
+      </Relationships>
+     </Item>
+     <Item type="Field" id="BA8B1D650D7E4FB8A68311C2BD28AB23" action="add">
+      <border_width>0</border_width>
+      <display_length_unit>px</display_length_unit>
+      <field_type>item</field_type>
+      <font_color>#000000</font_color>
+      <font_family>arial, helvetica, sans-serif</font_family>
+      <font_size>8pt</font_size>
+      <font_weight>bold</font_weight>
+      <is_disabled>0</is_disabled>
+      <is_visible>1</is_visible>
+      <label xml:lang="en">UOM Property</label>
+      <label_position>top</label_position>
+      <list_no_blank>0</list_no_blank>
+      <propertytype_id keyed_name="uom_property" type="Property">AAD4F4DA38D8482195AF8F63C0378283</propertytype_id>
+      <sort_order>384</sort_order>
+      <source_id keyed_name="B91F476611FB4A6A91EA4F97B4D137E9" type="Body">B91F476611FB4A6A91EA4F97B4D137E9</source_id>
+      <tab_index>30</tab_index>
+      <tab_stop>1</tab_stop>
+      <x>360</x>
+      <y>10</y>
+      <name>uom_property</name>
+     </Item>
+    </Relationships>
+   </Item>
+   <Item type="Form Event" id="7E28C68601AE4161B62A8E480698AFDF" action="add">
+    <form_event>onformpopulated</form_event>
+    <related_id keyed_name="UOM_EnableDisableUOMProperty" type="Method">
+     <Item type="Method" action="get" select="id">
+      <name>UOM_EnableDisableUOMProperty</name>
+     </Item>
+    </related_id>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="Unit Conversion" type="Form">D34F8078B975400FB3BCB4E354294EB6</source_id>
+   </Item>
+  </Relationships>
+ </Item>
+</AML>

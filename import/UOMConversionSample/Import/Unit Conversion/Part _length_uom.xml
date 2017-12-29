@@ -1,0 +1,30 @@
+﻿<AML>
+ <Item type="Unit Conversion" id="D0FA0FA128A046C4867CD40FD2A88118" action="add">
+  <uom_itemtype keyed_name="Part" type="ItemType" name="Part">4F1AC04A2B484F3ABA4E20DB63808A88</uom_itemtype>
+  <uom_property keyed_name="_length_uom" type="Property">51C92E9F0DE84AE39EE1BFAE15946A1E</uom_property>
+  <Relationships>
+   <Item type="Unit Conversion Locale" id="E822C89BB7A944FFB8D95153452B41C8" action="add">
+    <sort_order>256</sort_order>
+    <source_id keyed_name="Part _length_uom" type="Unit Conversion">D0FA0FA128A046C4867CD40FD2A88118</source_id>
+    <uom_locale keyed_name="fr-FR" type="Locale">B1EE44ACAEFF48D29130CE2FA8229BCA</uom_locale>
+    <uom_unit>mm</uom_unit>
+   </Item>
+   <Item type="Unit Conversion Locale" id="787F2C3371834778818DE2B9A829DD58" action="add">
+    <sort_order>384</sort_order>
+    <source_id keyed_name="Part _length_uom" type="Unit Conversion">D0FA0FA128A046C4867CD40FD2A88118</source_id>
+    <uom_locale keyed_name="en-US" type="Locale">12524C7C51864647877CB573395E9BA0</uom_locale>
+    <uom_unit>in</uom_unit>
+   </Item>
+   <Item type="Unit Conversion Property" id="9C9FEA35C3AE4FCA8156219ED8445B4F" action="add">
+    <sort_order>128</sort_order>
+    <source_id keyed_name="Part _length_uom" type="Unit Conversion">D0FA0FA128A046C4867CD40FD2A88118</source_id>
+    <uom_property keyed_name="_diameter" type="Property">EFABEA81512F4AA587A2E16FE4FA12AD</uom_property>
+   </Item>
+   <Item type="Unit Conversion Property" id="6A3E182B81A1475DAEF79799C0784303" action="add">
+    <sort_order>256</sort_order>
+    <source_id keyed_name="Part _length_uom" type="Unit Conversion">D0FA0FA128A046C4867CD40FD2A88118</source_id>
+    <uom_property keyed_name="_length" type="Property">EE5C2FCC6B374109843442C3D9E5F4C4</uom_property>
+   </Item>
+  </Relationships>
+ </Item>
+</AML>

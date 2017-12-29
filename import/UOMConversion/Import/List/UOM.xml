@@ -1,0 +1,56 @@
+﻿<AML>
+ <Item type="List" id="F86331A4FD0243C59B81FEDAB4C6C0C4" action="add">
+  <description>Units of Measure used by "Property (UOM Property)" itemtype. </description>
+  <name>UOM</name>
+  <Relationships>
+   <Item type="Value" id="302F189606F24939BE89CBE90F649CA7" action="add">
+    <label xml:lang="en">mm</label>
+    <sort_order>10</sort_order>
+    <source_id keyed_name="UOM" type="List">F86331A4FD0243C59B81FEDAB4C6C0C4</source_id>
+    <value>mm</value>
+   </Item>
+   <Item type="Value" id="D6D0922606B449B78982313F8C5A02D9" action="add">
+    <label xml:lang="en">m</label>
+    <sort_order>20</sort_order>
+    <source_id keyed_name="UOM" type="List">F86331A4FD0243C59B81FEDAB4C6C0C4</source_id>
+    <value>m</value>
+   </Item>
+   <Item type="Value" id="C8649E6D320D42D99E98920AFDACF680" action="add">
+    <label xml:lang="en">in</label>
+    <sort_order>30</sort_order>
+    <source_id keyed_name="UOM" type="List">F86331A4FD0243C59B81FEDAB4C6C0C4</source_id>
+    <value>in</value>
+   </Item>
+   <Item type="Value" id="4141D3410A904954A0D8B83CD8C3B9A6" action="add">
+    <label xml:lang="en">ft</label>
+    <sort_order>40</sort_order>
+    <source_id keyed_name="UOM" type="List">F86331A4FD0243C59B81FEDAB4C6C0C4</source_id>
+    <value>ft</value>
+   </Item>
+   <Item type="Value" id="1194AFEE56294EC2B56C9E176432B79F" action="add">
+    <label xml:lang="en">oz</label>
+    <sort_order>50</sort_order>
+    <source_id keyed_name="UOM" type="List">F86331A4FD0243C59B81FEDAB4C6C0C4</source_id>
+    <value>oz</value>
+   </Item>
+   <Item type="Value" id="EA2CA16C06344462AF6201E8F6A6D2F9" action="add">
+    <label xml:lang="en">lb</label>
+    <sort_order>60</sort_order>
+    <source_id keyed_name="UOM" type="List">F86331A4FD0243C59B81FEDAB4C6C0C4</source_id>
+    <value>lb</value>
+   </Item>
+   <Item type="Value" id="3BE23E55A03742D88E471B68BAD2BD8F" action="add">
+    <label xml:lang="en">g</label>
+    <sort_order>70</sort_order>
+    <source_id keyed_name="UOM" type="List">F86331A4FD0243C59B81FEDAB4C6C0C4</source_id>
+    <value>g</value>
+   </Item>
+   <Item type="Value" id="F15AF3BDC8814998BA718F62A397CF85" action="add">
+    <label xml:lang="en">kg</label>
+    <sort_order>80</sort_order>
+    <source_id keyed_name="UOM" type="List">F86331A4FD0243C59B81FEDAB4C6C0C4</source_id>
+    <value>kg</value>
+   </Item>
+  </Relationships>
+ </Item>
+</AML>

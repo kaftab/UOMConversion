@@ -1,0 +1,62 @@
+﻿<AML>
+ <Item type="List" id="F1266C098C9645B8BB8B12BB85C02C9F" action="add">
+  <description>Used by automation for units conversion.
+
+Labels must follow the convention:
+{fromUnit} --&gt; {toUnit}
+multiply the fromUnit value with Value to get the toUnit value
+
+Only one set needed for a given set of units. Reverse conversion is calculated</description>
+  <name>UOM Multipliers</name>
+  <Relationships>
+   <Item type="Value" id="34C39AD4B7434965815E8BD0F5D8DF5D" action="add">
+    <label xml:lang="en">in --&gt; mm</label>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="UOM Multipliers" type="List">F1266C098C9645B8BB8B12BB85C02C9F</source_id>
+    <value>25.4</value>
+   </Item>
+   <Item type="Value" id="64CF3F19D6D6448788CB16CD0F4BAB85" action="add">
+    <label xml:lang="en">m --&gt; in</label>
+    <sort_order>256</sort_order>
+    <source_id keyed_name="UOM Multipliers" type="List">F1266C098C9645B8BB8B12BB85C02C9F</source_id>
+    <value>39.3701</value>
+   </Item>
+   <Item type="Value" id="70F7EFF97EB540C3B9BAFD40A8D723BB" action="add">
+    <label xml:lang="en">ft --&gt; mm</label>
+    <sort_order>640</sort_order>
+    <source_id keyed_name="UOM Multipliers" type="List">F1266C098C9645B8BB8B12BB85C02C9F</source_id>
+    <value>304.8</value>
+   </Item>
+   <Item type="Value" id="7BCDC7FC5BFE4C4B8A8E9A92C0423703" action="add">
+    <label xml:lang="en">m --&gt; ft</label>
+    <sort_order>768</sort_order>
+    <source_id keyed_name="UOM Multipliers" type="List">F1266C098C9645B8BB8B12BB85C02C9F</source_id>
+    <value>3.28084</value>
+   </Item>
+   <Item type="Value" id="4075243A2E2D450BAE76E7F3615C4FA4" action="add">
+    <label xml:lang="en">lb --&gt; g</label>
+    <sort_order>1280</sort_order>
+    <source_id keyed_name="UOM Multipliers" type="List">F1266C098C9645B8BB8B12BB85C02C9F</source_id>
+    <value>453.592</value>
+   </Item>
+   <Item type="Value" id="C7D29E54001A4B318AEFBDA8CD437CFE" action="add">
+    <label xml:lang="en">oz --&gt; g</label>
+    <sort_order>1920</sort_order>
+    <source_id keyed_name="UOM Multipliers" type="List">F1266C098C9645B8BB8B12BB85C02C9F</source_id>
+    <value>28.3495</value>
+   </Item>
+   <Item type="Value" id="162A97D1C5BB478BAF8AFF9800AF339B" action="add">
+    <label xml:lang="en">kg --&gt; lb</label>
+    <sort_order>2176</sort_order>
+    <source_id keyed_name="UOM Multipliers" type="List">F1266C098C9645B8BB8B12BB85C02C9F</source_id>
+    <value>2.20462</value>
+   </Item>
+   <Item type="Value" id="40878E177A974A7AB36BA1FAA6B06DA3" action="add">
+    <label xml:lang="en">kg --&gt; oz</label>
+    <sort_order>2304</sort_order>
+    <source_id keyed_name="UOM Multipliers" type="List">F1266C098C9645B8BB8B12BB85C02C9F</source_id>
+    <value>35.274</value>
+   </Item>
+  </Relationships>
+ </Item>
+</AML>

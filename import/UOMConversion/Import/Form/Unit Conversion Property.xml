@@ -1,0 +1,39 @@
+﻿<AML>
+ <Item type="Form" id="59E119DBF0E84268A8EC3BD6AC9CF359" action="add">
+  <category_form>0</category_form>
+  <height>234</height>
+  <stylesheet><![CDATA[../styles/default.css]]></stylesheet>
+  <width>699</width>
+  <name>Unit Conversion Property</name>
+  <Relationships>
+   <Item type="Body" id="2D4B4EC540534C9BAC3EF72CF1E4F630" action="add">
+    <bg_color>#FFFFFF</bg_color>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="Unit Conversion Property" type="Form">59E119DBF0E84268A8EC3BD6AC9CF359</source_id>
+    <Relationships>
+     <Item type="Field" id="2B3C03F6E9A24993ADB900DBFC5B0585" action="add">
+      <display_length_unit>px</display_length_unit>
+      <field_type>html</field_type>
+      <html_code><![CDATA[<span id='ITEM_INFO_INTERNAL_SPAN'/>
+<script>
+  populate_ITEM_INFO_INTERNAL_SPAN = function()
+  {
+    document.getElementById('ITEM_INFO_INTERNAL_SPAN').innerHTML = aras.uiGetItemInfoTable(document.itemType);
+  }
+  window.addEventListener('load', populate_ITEM_INFO_INTERNAL_SPAN);
+</script>]]></html_code>
+      <is_disabled>0</is_disabled>
+      <is_visible>1</is_visible>
+      <list_no_blank>0</list_no_blank>
+      <sort_order>128</sort_order>
+      <source_id keyed_name="2D4B4EC540534C9BAC3EF72CF1E4F630" type="Body">2D4B4EC540534C9BAC3EF72CF1E4F630</source_id>
+      <tab_stop>0</tab_stop>
+      <x>0</x>
+      <y>0</y>
+      <name>item_info</name>
+     </Item>
+    </Relationships>
+   </Item>
+  </Relationships>
+ </Item>
+</AML>

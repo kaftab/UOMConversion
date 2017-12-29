@@ -1,0 +1,38 @@
+﻿<AML>
+ <Item type="Method" id="3C72C917A9A54BC2BA62E6880AB2F82B" action="add">
+  <execution_allowed_to keyed_name="World" type="Identity">A73B655731924CD0B027E4F4D5FCC0A9</execution_allowed_to>
+  <method_code><![CDATA[// Name:            UOM_filtered_search
+// Called From:     ItemType: Unit Conversion, OnSearchDialog of Property UOM Property
+// Purpose:         Sets the search filter to pick properties only on the itemtype that it's called on
+// Date:            3/29/2017        
+// By:              Kamran Aftab 
+
+// Create a filter
+var Filter = new Object();
+//Filter["data_type"]={filterValue:"string", isFilterFixed:true};
+
+// Get the type id of the UOM property
+var itemTypeProperty = parent.thisItem.getPropertyItem("uom_itemtype");
+if (itemTypeProperty === null)
+    return Filter;
+    
+var itemTypeID = itemTypeProperty.getID();
+
+// Get the itemtype from the type id
+var inn = parent.thisItem.getInnovator();
+var itemTypes = inn.newItem("ItemType", "get");
+itemTypes.setID(itemTypeID);
+itemTypes = itemTypes.apply();
+var itemType = itemTypes.getItemByIndex(0);
+
+Filter["source_id"]={filterValue:itemType.getProperty("name"), isFilterFixed:true};
+
+return Filter;
+
+
+
+]]></method_code>
+  <method_type>JavaScript</method_type>
+  <name>UOM_filtered_search</name>
+ </Item>
+</AML>

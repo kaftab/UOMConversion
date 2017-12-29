@@ -1,0 +1,110 @@
+﻿<AML>
+ <Item type="ItemType" id="4592D30A3F6C4FDEA7CF3B746A171A39" action="add">
+  <allow_private_permission>1</allow_private_permission>
+  <auto_search>0</auto_search>
+  <enforce_discovery>1</enforce_discovery>
+  <hide_where_used>0</hide_where_used>
+  <implementation_type>table</implementation_type>
+  <instance_data>UNIT_CONVERSION</instance_data>
+  <is_dependent>0</is_dependent>
+  <is_relationship>0</is_relationship>
+  <is_versionable>0</is_versionable>
+  <large_icon>../Images/FailureMode.svg</large_icon>
+  <open_icon>../Images/FailureMode.svg</open_icon>
+  <revisions keyed_name="Default" type="Revision">7FE395DD8B9F4E1090756A34B733D75E</revisions>
+  <show_parameters_tab>1</show_parameters_tab>
+  <structure_view>tabs on</structure_view>
+  <unlock_on_logout>0</unlock_on_logout>
+  <use_src_access>0</use_src_access>
+  <name>Unit Conversion</name>
+  <Relationships>
+   <Item type="View" id="57C74396D2C64608B6B4CF2378DC0E54" action="add">
+    <client>js</client>
+    <related_id keyed_name="Unit Conversion" type="Form">D34F8078B975400FB3BCB4E354294EB6</related_id>
+    <role keyed_name="World" type="Identity">
+     <Item type="Identity" action="get" select="id">
+      <name>World</name>
+     </Item>
+    </role>
+    <show_ssvc>0</show_ssvc>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="Unit Conversion" type="ItemType" name="Unit Conversion">4592D30A3F6C4FDEA7CF3B746A171A39</source_id>
+    <type>default</type>
+   </Item>
+   <Item type="TOC Access" id="22D88F61729945AABE53E605C94AC7D5" action="add">
+    <related_id keyed_name="Administrators" type="Identity">2618D6F5A90949BAA7E920D1B04C7EE1</related_id>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="Unit Conversion" type="ItemType" name="Unit Conversion">4592D30A3F6C4FDEA7CF3B746A171A39</source_id>
+    <category>Administration</category>
+   </Item>
+   <Item type="Can Add" id="74150DBB784A49278FE32A1EDC777AFB" action="add">
+    <can_add>1</can_add>
+    <related_id keyed_name="Administrators" type="Identity">2618D6F5A90949BAA7E920D1B04C7EE1</related_id>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="Unit Conversion" type="ItemType" name="Unit Conversion">4592D30A3F6C4FDEA7CF3B746A171A39</source_id>
+   </Item>
+   <Item type="Allowed Permission" id="2340EC1DAFB44802AB3BF632FD18EB5A" action="add">
+    <is_default>1</is_default>
+    <related_id keyed_name="Default Access" type="Permission">9122CD065CF04141B8EFE263FC80BEA4</related_id>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="Unit Conversion" type="ItemType" name="Unit Conversion">4592D30A3F6C4FDEA7CF3B746A171A39</source_id>
+   </Item>
+  </Relationships>
+ </Item>
+ <Item type="ItemType" id="4592D30A3F6C4FDEA7CF3B746A171A39" action="edit">
+  <Relationships>
+   <Item type="Property" id="A0E6C8688342485DA60B280A7A159A12" action="add">
+    <column_alignment>left</column_alignment>
+    <data_source keyed_name="ItemType" type="ItemType" name="ItemType">450906E86E304F55A34B3C0D65C097EA</data_source>
+    <data_type>item</data_type>
+    <is_hidden>0</is_hidden>
+    <is_hidden2>0</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>1</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>1</is_required>
+    <item_behavior>float</item_behavior>
+    <keyed_name_order>10</keyed_name_order>
+    <label xml:lang="en">Item Type</label>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>10</sort_order>
+    <source_id keyed_name="Unit Conversion" type="ItemType" name="Unit Conversion">4592D30A3F6C4FDEA7CF3B746A171A39</source_id>
+    <track_history>0</track_history>
+    <name>uom_itemtype</name>
+   </Item>
+   <Item type="Property" id="AAD4F4DA38D8482195AF8F63C0378283" action="add">
+    <column_alignment>left</column_alignment>
+    <data_source keyed_name="Property" type="ItemType" name="Property">26D7CD4E033242148E2724D3D054B4D3</data_source>
+    <data_type>item</data_type>
+    <is_hidden>0</is_hidden>
+    <is_hidden2>0</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>1</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>1</is_required>
+    <item_behavior>float</item_behavior>
+    <keyed_name_order>30</keyed_name_order>
+    <label xml:lang="en">UOM Property</label>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>30</sort_order>
+    <source_id keyed_name="Unit Conversion" type="ItemType" name="Unit Conversion">4592D30A3F6C4FDEA7CF3B746A171A39</source_id>
+    <track_history>0</track_history>
+    <name>uom_property</name>
+    <Relationships>
+     <Item type="Grid Event" id="921899C221FF455F89D227180321B2F7" action="add">
+      <grid_event>onsearchdialog</grid_event>
+      <related_id keyed_name="UOM_filtered_search" type="Method">
+       <Item type="Method" action="get" select="id">
+        <name>UOM_filtered_search</name>
+       </Item>
+      </related_id>
+      <sort_order>128</sort_order>
+      <source_id keyed_name="uom_property" type="Property">AAD4F4DA38D8482195AF8F63C0378283</source_id>
+     </Item>
+    </Relationships>
+   </Item>
+  </Relationships>
+ </Item>
+</AML>

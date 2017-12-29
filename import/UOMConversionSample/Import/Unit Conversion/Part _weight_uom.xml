@@ -1,0 +1,25 @@
+﻿<AML>
+ <Item type="Unit Conversion" id="F351A89C8D9F47A094141CA6205BC1F8" action="add">
+  <uom_itemtype keyed_name="Part" type="ItemType" name="Part">4F1AC04A2B484F3ABA4E20DB63808A88</uom_itemtype>
+  <uom_property keyed_name="_weight_uom" type="Property">2D5E40F208494ADEA97603086AD7EED8</uom_property>
+  <Relationships>
+   <Item type="Unit Conversion Locale" id="D6E5A33AC8AE46FBB15A0D4666690543" action="add">
+    <sort_order>128</sort_order>
+    <source_id keyed_name="Part _weight_uom" type="Unit Conversion">F351A89C8D9F47A094141CA6205BC1F8</source_id>
+    <uom_locale keyed_name="en-US" type="Locale">12524C7C51864647877CB573395E9BA0</uom_locale>
+    <uom_unit>oz</uom_unit>
+   </Item>
+   <Item type="Unit Conversion Locale" id="7AE4B4A39D3D430FA1EE63303C8885EF" action="add">
+    <sort_order>256</sort_order>
+    <source_id keyed_name="Part _weight_uom" type="Unit Conversion">F351A89C8D9F47A094141CA6205BC1F8</source_id>
+    <uom_locale keyed_name="fr-FR" type="Locale">B1EE44ACAEFF48D29130CE2FA8229BCA</uom_locale>
+    <uom_unit>g</uom_unit>
+   </Item>
+   <Item type="Unit Conversion Property" id="6506C811DAEE48328FAC956B399C8522" action="add">
+    <sort_order>128</sort_order>
+    <source_id keyed_name="Part _weight_uom" type="Unit Conversion">F351A89C8D9F47A094141CA6205BC1F8</source_id>
+    <uom_property keyed_name="_weight" type="Property">ACBDDAE704DE498FB49E7F50C43D7B23</uom_property>
+   </Item>
+  </Relationships>
+ </Item>
+</AML>

@@ -1,0 +1,332 @@
+﻿<AML>
+ <Item type="Method" id="378084DAD1294728B62252A09BA72DEB" action="add">
+  <execution_allowed_to keyed_name="World" type="Identity">A73B655731924CD0B027E4F4D5FCC0A9</execution_allowed_to>
+  <method_code><![CDATA[// Name:            UOM_UpdateOnFormPopulated
+// Called From:     Any ItemType Form - onFormPopulated; 
+// Purpose:         Sets up the default UOM and converts the property values based on the locale
+// Date:            3/29/2017        
+// By:              Kamran Aftab 
+
+
+// Get browser locale
+var inn = document.thisItem.getInnovator();
+var cntx = inn.getI18NSessionContext();
+var locale = cntx.GetLocale();
+
+// Get type Id for the context item
+var itemTypeId = document.thisItem.getAttribute("typeId");
+
+// Build the multipliers list
+var unitConversionsInstance = new UnitConversion();
+unitConversionsInstance.buildList();
+
+// Find all the Unit Conversion items that reference the context item
+var unitConversionItems = inn.newItem("Unit Conversion", "get");
+unitConversionItems.setProperty("uom_itemType",itemTypeId);
+var uomPropertyItem = inn.newItem("Property", "get");
+uomPropertyItem.setAttribute('select', 'name,default_value');
+unitConversionItems.setPropertyItem('uom_property', uomPropertyItem);
+unitConversionItems = unitConversionItems.apply();
+var uCount = unitConversionItems.getItemCount();
+
+// Cycle all Unit Conversion items and do the conversion on each
+for (var ii = 0; ii < uCount; ii++)
+{
+    // Build the UnitConversionItem
+    var unitConversionItem = new UnitConversionItem(unitConversionItems.getItemByIndex(ii), locale);
+
+    // If a corresponding element on form not found, ignore it (will display the original values and units)
+    if (unitConversionItem.unitElement == undefined)
+    {
+        top.aras.AlertError("Form Element \"" + unitConversionItem.uomPropertyName + "\" not found \n Conversion will be ignored for associated properties");
+        continue;
+    }
+        
+    // If multiplier not found, don't do anything
+    if (unitConversionItem.multiplier == 0)
+    {
+        top.aras.AlertError("Multiplier not found from: " + unitConversionItem.fromUnit + " --> " + unitConversionItem.toUnit + "\nOriginal values and units will show for affected properties");
+        continue;
+    }   
+
+    // Set the UOMProperty value on the form
+    unitConversionItem.setUOMProperty(locale);
+
+    // Convert property values for this Unit Conversion
+    unitConversionItem.convert(locale);
+}
+
+return;
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// Class to encapsulate Unit Conversion Item
+function UnitConversionItem(itm, locale)
+{   
+    this.item = itm;
+    this.uomProperty = itm.getPropertyItem("uom_property");
+    this.uomPropertyName = this.uomProperty.getProperty("name");
+    this.unitElement = document.getElementById("MainDataForm").elements[this.uomPropertyName];
+    if (this.unitElement == undefined)
+        return;
+
+    this.toUnit;
+    this.fromUnit = document.thisItem.getProperty(this.uomPropertyName);
+    
+    // Cycle the Unit Conversion Locale relationships to find the one that matches the locale
+    relationships = getRelationships("Unit Conversion Locale", this.item, "Locale", 'name,code', "uom_locale");
+    var count = relationships.getItemCount();
+  
+    // Cycle the relationships and find the one that matches the locale
+    for (var ii = 0; ii < count; ii++)
+    {
+        var localeItem = relationships.getItemByIndex(ii).getPropertyItem("uom_locale");
+        var localeString = localeItem.getProperty("code");
+        var localeUnit = relationships.getItemByIndex(ii).getProperty("uom_unit");
+            
+        if (localeString === locale)
+        {
+            this.toUnit = localeUnit;
+            break;
+        }
+    }
+        
+    // If locale not matched, set to default property value
+    if (ii >= count)
+        this.toUnit = this.uomProperty.getProperty("default_value");
+    
+    this.multiplier = unitConversionsInstance.findMultiplier(this.fromUnit,this.toUnit);
+    
+    // Function to set UOM Property value
+    this.setUOMProperty = function(locale)
+    {
+        // Set the value in the form element
+        this.unitElement.value = this.toUnit;
+        handleItemChange(this.uomPropertyName, this.toUnit);
+    }
+    
+    // Function to convert units
+    this.convert = function(locale)
+    {
+        // If from and to units are same, skip it
+        if (this.fromUnit === this.toUnit)
+            return;
+            
+        // Get the properties associated with this UOM
+        relationships = getRelationships("Unit Conversion Property", this.item, "Property", 'name,default_value', "uom_property");
+        var count = relationships.getItemCount();
+        if (count == 0)
+            return;
+        
+        // Cycle the relationships and add Property to the list
+        for (var ii = 0; ii < count; ii++)
+        {
+            var propertyItem = relationships.getItemByIndex(ii).getPropertyItem("uom_property");
+            var propertyItem = new PropertyItem(propertyItem);
+            propertyItem.convertUnits(this.fromUnit, this.toUnit, this.multiplier);
+        }
+    }
+}
+
+// Class to encapsulate Property Item
+function PropertyItem(itm)
+{
+    this.item = itm;
+    this.name = itm.getProperty("name");
+
+    // Converts the value to the locale units for display only
+    this.convertUnits  = function(fromUnit, toUnit, multiplier)
+    {
+        var convertedValue;
+        var value = document.thisItem.getProperty(this.name,"");
+
+        // If value is empty, do nothing
+        if (value == "")
+            return false;
+            
+        // var multiplier = unitConversionsInstance.findMultiplier(fromUnit,toUnit);
+
+        // // Returns false if it could not find a multiplier
+        // if (multiplier == 0)
+        // {
+        //     convertedValue = 0;
+            
+        // }
+        // else
+        // {
+            convertedValue = value * multiplier;
+       
+            // Round the value to the nearest decimal        
+            convertedValue = Math.round(convertedValue*10000)/10000;
+        // }
+        
+        // Get the fields that use this property as the Data Source
+        fieldNames = getFieldsForDataSource(this.item.getID());
+    
+        for (var ii = 0; ii < fieldNames.length; ii++)
+        {
+            var unitElement = document.getElementById("MainDataForm").elements[fieldNames[ii]];
+            
+            // Get the field element from the form
+            if(unitElement == null)
+            {
+                throw("Property not found:" + this.propertyName);
+            }
+    
+            // Set the value in the form element
+            unitElement.value = convertedValue;
+
+            // Apply the change to the property 
+            handleItemChange(this.name, convertedValue);
+        }
+        
+        //return true;
+    }
+}
+
+// Class to provide unit conversions
+function UnitConversion(from, to, multi)
+{
+    this.fromUnit = from;
+    this.toUnit = to;
+    this.multiplier = multi;
+    this.listName = "UOM Multipliers";
+    this.propertiesList = [];
+    this.delim = "-->";
+    
+    this.buildList  = function()
+    {
+        // Get the list values
+        var AMLQuery = "<AML><Item type=\"List\" action=\"get\">" + 
+                            "<name>" + this.listName + "</name>" +
+                            "<Relationships>" + 
+                                "<Item type=\"Value\" action=\"get\" select=\"label, value\"></Item>" +
+                            "</Relationships></Item></AML>";
+
+        // Run Export AML Query
+	    var allItems = new Item();
+	    allItems.loadAML(AMLQuery);
+	    allItems = allItems.apply();
+	    var allItemsCount = allItems.getItemCount();
+        var item = allItems.getItemByIndex(0);
+        
+        // Find the values
+        var relationships = item.getRelationships("Value");
+        for (var ii = 0; ii < relationships.getItemCount(); ii++) 
+        {
+            var valueItem = relationships.getItemByIndex(ii);
+            var label = valueItem.getProperty("label","");
+            var value = valueItem.getProperty("value","");
+
+            var index = label.indexOf(this.delim);
+            if (index == -1)
+                throw ("Malformed label in list: " + this.listName);
+            var unitFrom = label.substr(0,index-1).trim();
+            var unitTo = label.substr(index + 4).trim();
+            var multiplier = 1;
+            try 
+            {
+                multiplier = parseFloat(value);
+            }
+            catch (err)
+            {
+                throw ("Unable to convert the Value of \"" + value + "\" to double in List \"" + this.listName + "\"");
+            }
+            if (multiplier == 1)
+                continue;
+                
+            // Add two conversion statements from a set of units    
+            var unitconversion = new UnitConversion(unitFrom, unitTo, multiplier);
+            this.propertiesList.push(unitconversion);
+            unitconversion = new UnitConversion(unitTo, unitFrom, 1/multiplier);
+            this.propertiesList.push(unitconversion);
+        }
+    }
+    
+    // Returns the unit multiplier fromUnit x multiplier = toUnit
+    this.findMultiplier = function(fromUnit, toUnit)
+    {
+
+        // If same unit, return a "1"
+        if (fromUnit == toUnit)
+            return 1;
+        
+        // If something is missing, return a "0"
+        if (fromUnit === "" || toUnit === "" || fromUnit === null || toUnit === null || fromUnit === undefined || toUnit === undefined)
+            return 0
+            
+        for (var ii  = 0; ii < this.propertiesList.length; ii++)
+        {
+            
+            var property = this.propertiesList[ii];
+
+            if (property.fromUnit == fromUnit && property.toUnit == toUnit)
+                 return property.multiplier;
+        }
+        
+        return 0;
+    }
+}
+
+// Method to get relationsip items with a property item
+function getRelationships(relationshipType, sourceItem, propertyItemType, propertyItemFields, propertyItemName)
+{
+    // Get the innovator instance
+    var inn = document.thisItem.getInnovator();
+    
+    // Set the item up for gettign relationship types
+    var relationships = inn.newItem(relationshipType, "get");
+    
+    // Set the parent item to the source id
+    relationships.setProperty("source_id", sourceItem.getID());
+    
+    // Set the property item in the relationship item
+    var propertyItem = inn.newItem(propertyItemType, "get");
+    propertyItem.setAttribute('select',propertyItemFields);
+    relationships.setPropertyItem(propertyItemName, propertyItem);
+    
+    // Get the relationships
+    relationships = relationships.apply();
+    return relationships;
+}
+
+// Method to return fields that use the given property as the Data Source
+function getFieldsForDataSource(propertyID)
+{
+    var fieldNames = [];
+    
+    var formID = document.formID;
+    
+    // Get the innovator instance
+    var inn = document.thisItem.getInnovator();
+    
+    // Get the body item
+    var bodyItems = inn.newItem("Body", "get");
+    bodyItems.setProperty("source_id", formID);
+    bodyItems = bodyItems.apply();
+    var bodyItem = bodyItems.getItemByIndex(0);
+
+    // Get the fields
+    var fieldItems = inn.newItem("Field", "get");
+    fieldItems.setProperty("source_id", bodyItem.getID());
+    fieldItems.setProperty("propertytype_id", propertyID);
+    fieldItems = fieldItems.apply();
+    var count = fieldItems.getItemCount();
+    for (var ii = 0; ii < count; ii++)
+    {
+        var fieldItem = fieldItems.getItemByIndex(ii);
+        var fieldName = fieldItem.getProperty("name");
+        fieldNames.push(fieldName);
+    }
+
+    return fieldNames;
+}
+
+// Method to round the decimals
+function round(value, decimals) {
+    return Number(Math.round(value+'e'+decimals)+'e-'+decimals);
+}]]></method_code>
+  <method_type>JavaScript</method_type>
+  <name>UOM_OnFormPopulated</name>
+ </Item>
+</AML>
