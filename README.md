@@ -4,9 +4,9 @@ The project allows adding locale based standard units to properties of any ItemT
 # Steps for Configuration (A sample configuration is included in the package)
 1. Modify the itemtype that has the properties  
 1.1. Add dimensional property(s) to the itemtype and form  
-1.2. Add a UOM property to the itemtype and form, set a default value (used when locale is not defined)
-1.3. Make the UOM property “Disabled” on the form
-1.4. Ensure UOM property “Name” is same as the Data Source name
+1.2. Add a UOM property to the itemtype and form, set a default value (used when locale is not defined) 
+1.3. Make the UOM property “Disabled” on the form  
+1.4. Ensure UOM property “Name” is same as the Data Source name  
 
 ![image](https://user-images.githubusercontent.com/27519066/34441003-0f43d78c-ec87-11e7-80de-63b23ce6bba2.png)
 
